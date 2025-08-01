@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio & Case Studies - Novasysis Technology</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .portfolio-filter {
+            padding: 12px 24px;
+            border: 2px solid #667eea;
+            background: transparent;
+            color: #667eea;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .portfolio-filter.active,
+        .portfolio-filter:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .portfolio-image {
+            height: 250px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-image::before {
+            opacity: 1;
+        }
+        
+        .portfolio-content {
+            padding: 2rem;
+        }
+        
+        .portfolio-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 700;
+        }
+        
+        .portfolio-category {
+            color: #667eea;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .portfolio-tag {
+            padding: 4px 12px;
+            background: linear-gradient(45deg, #00d4ff, #3b82f6);
+            color: white;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .portfolio-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+        
+        .portfolio-client {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .portfolio-duration {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .testimonials-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            color: #00d4ff;
+            font-family: serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-position {
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+        
+        .stats-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stats-item {
+            padding: 2rem 1rem;
+        }
+        
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00d4ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stats-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cube"></i>
+                </div>
+                Novasysis Technology
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Portfolio</h1>
+            <p>Showcasing successful projects and transformative solutions we've delivered for our clients</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+                <p>Explore our successful implementations across various industries and technologies</p>
+            </div>
+            
+            <!-- Portfolio Filters -->
+            <div class="portfolio-filters">
+                <button class="portfolio-filter active" data-filter="all">All Projects</button>
+                <button class="portfolio-filter" data-filter="web-development">Web Development</button>
+                <button class="portfolio-filter" data-filter="mobile-app">Mobile Apps</button>
+                <button class="portfolio-filter" data-filter="cloud-solutions">Cloud Solutions</button>
+                <button class="portfolio-filter" data-filter="enterprise">Enterprise Software</button>
+                <button class="portfolio-filter" data-filter="ecommerce">E-Commerce</button>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <div class="portfolio-item web-development ecommerce">
+                    <div class="portfolio-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">E-Commerce Platform</div>
+                        <h3 class="portfolio-title">GlobalTrade Marketplace</h3>
+                        <p class="portfolio-description">A comprehensive B2B marketplace platform connecting manufacturers with retailers globally. Features include multi-vendor support, real-time inventory management, and advanced analytics.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">React</span>
+                            <span class="portfolio-tag">Node.js</span>
+                            <span class="portfolio-tag">MongoDB</span>
+                            <span class="portfolio-tag">AWS</span>
+                            <span class="portfolio-tag">Stripe</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <span class="portfolio-client">TechCorp Industries</span>
+                            <span class="portfolio-duration">8 months</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item mobile-app">
+                    <div class="portfolio-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Mobile Application</div>
+                        <h3 class="portfolio-title">HealthTracker Pro</h3>
+                        <p class="portfolio-description">A comprehensive health and fitness tracking app with AI-powered recommendations, social features, and integration with wearable devices.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">React Native</span>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">TensorFlow</span>
+                            <span class="portfolio-tag">Firebase</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <span class="portfolio-client">WellnessFirst</span>
+                            <span class="portfolio-duration">6 months</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item cloud-solutions enterprise">
+                    <div class="portfolio-image">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Cloud Migration</div>
+                        <h3 class="portfolio-title">Enterprise Cloud Transformation</h3>
+                        <p class="portfolio-description">Complete migration of legacy systems to AWS cloud infrastructure with 99.9% uptime, 40% cost reduction, and improved scalability.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">AWS</span>
+                            <span class="portfolio-tag">Docker</span>
+                            <span class="portfolio-tag">Kubernetes</span>
+                            <span class="portfolio-tag">Terraform</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <span class="portfolio-client">MegaCorp Ltd</span>
+                            <span class="portfolio-duration">12 months</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item web-development">
+                    <div class="portfolio-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Educational Platform</div>
+                        <h3 class="portfolio-title">EduLearn LMS</h3>
+                        <p class="portfolio-description">A modern learning management system with interactive courses, real-time collaboration, and advanced analytics for educational institutions.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Angular</span>
+                            <span class="portfolio-tag">Spring Boot</span>
+                            <span class="portfolio-tag">PostgreSQL</span>
+                            <span class="portfolio-tag">WebRTC</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <span class="portfolio-client">University Alliance</span>
+                            <span class="portfolio-duration">10 months</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item enterprise">
+                    <div class="portfolio-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Business Intelligence</div>
+                        <h3 class="portfolio-title">Analytics Dashboard Suite</h3>
+                        <p class="portfolio-description">Real-time business intelligence platform with predictive analytics, custom reports, and data visualization for enterprise decision-making.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">D3.js</span>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">Apache Spark</span>
+                            <span class="portfolio-tag">Elasticsearch</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <span class="portfolio-client">DataFlow Corp</span>
+                            <span class="portfolio-duration">7 months</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item mobile-app">
+                    <div class="portfolio-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-category">Food Delivery App</div>
+                        <h3 class="portfolio-title">QuickBite Delivery</h3>
+                        <p class="portfolio-description">On-demand food delivery platform with real-time tracking, multiple payment options, and restaurant management dashboard.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Flutter</span>
+                            <span class="portfolio-tag">Node.js</span>
+                            <span class="portfolio-tag">Redis</span>
+                            <span class="portfolio-tag">Socket.io</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <span class="portfolio-client">FoodieZone</span>
+                            <span class="portfolio-duration">5 months</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <h2>Our Success in Numbers</h2>
+            <p>Delivering measurable results across all our projects</p>
+            <div class="stats-grid">
+                <div class="stats-item">
+                    <div class="stats-number">500+</div>
+                    <div class="stats-label">Projects Completed</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">150+</div>
+                    <div class="stats-label">Happy Clients</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">99.9%</div>
+                    <div class="stats-label">Uptime Achieved</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">24/7</div>
+                    <div class="stats-label">Support Available</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">40%</div>
+                    <div class="stats-label">Average Cost Savings</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">3x</div>
+                    <div class="stats-label">Performance Improvement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Real feedback from companies we've helped transform their business</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Novasysis Technology transformed our legacy systems into a modern, scalable platform. Their expertise in cloud migration saved us 40% in operational costs while improving performance significantly.</p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-position">CTO, TechCorp Industries</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The mobile app they developed exceeded our expectations. The user experience is fantastic, and the integration with our existing systems was seamless. Highly recommended!</p>
+                    <div class="testimonial-author">Mark Chen</div>
+                    <div class="testimonial-position">CEO, WellnessFirst</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Outstanding development team with deep technical knowledge. They delivered our e-commerce platform on time and within budget. The platform has been rock-solid since launch.</p>
+                    <div class="testimonial-author">Emma Rodriguez</div>
+                    <div class="testimonial-position">VP Technology, FoodieZone</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Their business intelligence solution gave us insights we never had before. The real-time analytics dashboard has become essential for our decision-making process.</p>
+                    <div class="testimonial-author">David Kumar</div>
+                    <div class="testimonial-position">Head of Operations, DataFlow Corp</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Professional, responsive, and highly skilled team. They understood our educational needs and delivered a platform that our students and faculty love using.</p>
+                    <div class="testimonial-author">Dr. Lisa Thompson</div>
+                    <div class="testimonial-position">Dean of Technology, University Alliance</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The cybersecurity audit and implementation they provided gave us peace of mind. Our systems are now secure and compliant with industry standards.</p>
+                    <div class="testimonial-author">Robert Smith</div>
+                    <div class="testimonial-position">CISO, MegaCorp Ltd</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Next Project?</h2>
+            <p>Let's discuss how we can help you achieve your technology goals and drive business growth</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fas fa-comments"></i>
+                    Get Free Consultation
+                </a>
+                <a href="services.html" class="btn btn-secondary">
+                    <i class="fas fa-cogs"></i>
+                    View Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html#cloud">Cloud Solutions</a></li>
+                        <li><a href="services.html#development">Custom Development</a></li>
+                        <li><a href="services.html#outsourcing">IT Outsourcing</a></li>
+                        <li><a href="services.html#security">Cybersecurity</a></li>
+                        <li><a href="services.html#transformation">Digital Transformation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="portfolio.html">Case Studies</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p style="margin-top: 1rem;">Follow us for the latest updates and insights in technology and innovation.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Novasysis Technology. All rights reserved. | Crafted with ❤️ for digital excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

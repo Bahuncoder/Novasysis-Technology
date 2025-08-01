@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Novasysis Technology</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .service-detail {
+            padding: 80px 0;
+        }
+        
+        .service-detail:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .service-features li:before {
+            content: '✓';
+            color: #00d4ff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .pricing-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid #00d4ff;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 1rem 0;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+        
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cube"></i>
+                </div>
+                Novasysis Technology
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Premium Services</h1>
+            <p>Comprehensive IT solutions designed to transform your business and accelerate growth</p>
+        </div>
+    </section>
+
+    <!-- Cloud Solutions -->
+    <section id="cloud" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Cloud Solutions</h2>
+                    <p>Transform your business with our comprehensive cloud services. We help organizations migrate, optimize, and manage their cloud infrastructure across AWS, Azure, and Google Cloud platforms.</p>
+                    <ul class="service-features">
+                        <li>Cloud Migration & Strategy</li>
+                        <li>Infrastructure as Code (IaC)</li>
+                        <li>Containerization with Docker & Kubernetes</li>
+                        <li>Serverless Architecture</li>
+                        <li>Multi-Cloud Management</li>
+                        <li>Cost Optimization</li>
+                        <li>Security & Compliance</li>
+                        <li>24/7 Monitoring & Support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Get Cloud Consultation</a>
+                </div>
+                <div class="service-visual">
+                    <div class="tech-grid">
+                        <div class="tech-item"><i class="fab fa-aws"></i></div>
+                        <div class="tech-item"><i class="fab fa-microsoft"></i></div>
+                        <div class="tech-item"><i class="fab fa-google"></i></div>
+                        <div class="tech-item"><i class="fab fa-docker"></i></div>
+                        <div class="tech-item"><i class="fab fa-kubernetes"></i></div>
+                        <div class="tech-item"><i class="fas fa-server"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Development -->
+    <section id="development" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-visual">
+                    <div class="tech-grid">
+                        <div class="tech-item"><i class="fab fa-react"></i></div>
+                        <div class="tech-item"><i class="fab fa-angular"></i></div>
+                        <div class="tech-item"><i class="fab fa-vue-js"></i></div>
+                        <div class="tech-item"><i class="fab fa-node-js"></i></div>
+                        <div class="tech-item"><i class="fab fa-python"></i></div>
+                        <div class="tech-item"><i class="fas fa-mobile-alt"></i></div>
+                    </div>
+                </div>
+                <div class="service-text">
+                    <h2>Custom Development</h2>
+                    <p>Build powerful, scalable applications tailored to your business needs. Our expert developers create custom solutions using the latest technologies and best practices.</p>
+                    <ul class="service-features">
+                        <li>Full-Stack Web Applications</li>
+                        <li>Mobile App Development (iOS/Android)</li>
+                        <li>Progressive Web Apps (PWA)</li>
+                        <li>Enterprise Software Solutions</li>
+                        <li>API Development & Integration</li>
+                        <li>Database Design & Optimization</li>
+                        <li>Microservices Architecture</li>
+                        <li>Legacy System Modernization</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IT Outsourcing -->
+    <section id="outsourcing" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>IT Outsourcing</h2>
+                    <p>Scale your development capabilities with our dedicated teams. From staff augmentation to complete project outsourcing, we provide flexible solutions to meet your needs.</p>
+                    <ul class="service-features">
+                        <li>Dedicated Development Teams</li>
+                        <li>Staff Augmentation</li>
+                        <li>Project-Based Outsourcing</li>
+                        <li>Agile Development Methodology</li>
+                        <li>Quality Assurance & Testing</li>
+                        <li>DevOps & CI/CD</li>
+                        <li>Technical Leadership</li>
+                        <li>Flexible Engagement Models</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Build Your Team</a>
+                </div>
+                <div class="service-visual">
+                    <div class="tech-grid">
+                        <div class="tech-item"><i class="fas fa-users"></i></div>
+                        <div class="tech-item"><i class="fas fa-tasks"></i></div>
+                        <div class="tech-item"><i class="fas fa-code-branch"></i></div>
+                        <div class="tech-item"><i class="fas fa-shield-alt"></i></div>
+                        <div class="tech-item"><i class="fas fa-rocket"></i></div>
+                        <div class="tech-item"><i class="fas fa-chart-line"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cybersecurity -->
+    <section id="security" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-visual">
+                    <div class="tech-grid">
+                        <div class="tech-item"><i class="fas fa-shield-alt"></i></div>
+                        <div class="tech-item"><i class="fas fa-lock"></i></div>
+                        <div class="tech-item"><i class="fas fa-eye"></i></div>
+                        <div class="tech-item"><i class="fas fa-bug"></i></div>
+                        <div class="tech-item"><i class="fas fa-fingerprint"></i></div>
+                        <div class="tech-item"><i class="fas fa-user-shield"></i></div>
+                    </div>
+                </div>
+                <div class="service-text">
+                    <h2>Cybersecurity</h2>
+                    <p>Protect your digital assets with our comprehensive cybersecurity services. We implement robust security frameworks and provide ongoing monitoring to keep your business safe.</p>
+                    <ul class="service-features">
+                        <li>Security Audits & Assessments</li>
+                        <li>Penetration Testing</li>
+                        <li>Security Framework Implementation</li>
+                        <li>Identity & Access Management</li>
+                        <li>Incident Response Planning</li>
+                        <li>Security Training & Awareness</li>
+                        <li>Compliance Management</li>
+                        <li>24/7 Security Monitoring</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Secure Your Business</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Transformation -->
+    <section id="transformation" class="service-detail">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Digital Transformation</h2>
+                    <p>Modernize your business processes and technology stack with our strategic digital transformation services. We help organizations become more agile, efficient, and competitive.</p>
+                    <ul class="service-features">
+                        <li>Digital Strategy Consulting</li>
+                        <li>Process Automation</li>
+                        <li>Legacy System Modernization</li>
+                        <li>Data Analytics & BI</li>
+                        <li>IoT Implementation</li>
+                        <li>AI & Machine Learning</li>
+                        <li>Change Management</li>
+                        <li>ROI Measurement & Optimization</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Transform Your Business</a>
+                </div>
+                <div class="service-visual">
+                    <div class="tech-grid">
+                        <div class="tech-item"><i class="fas fa-robot"></i></div>
+                        <div class="tech-item"><i class="fas fa-brain"></i></div>
+                        <div class="tech-item"><i class="fas fa-chart-bar"></i></div>
+                        <div class="tech-item"><i class="fas fa-cogs"></i></div>
+                        <div class="tech-item"><i class="fas fa-wifi"></i></div>
+                        <div class="tech-item"><i class="fas fa-sync-alt"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Service Packages</h2>
+                <p>Choose the perfect package for your business needs</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Startup</h3>
+                    <div class="price">$2,500<span style="font-size: 1rem; color: #666;">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Basic cloud setup</li>
+                        <li>Simple web application</li>
+                        <li>Email support</li>
+                        <li>Monthly reports</li>
+                        <li>2 revisions included</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Business</h3>
+                    <div class="price">$7,500<span style="font-size: 1rem; color: #666;">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Advanced cloud solutions</li>
+                        <li>Custom development</li>
+                        <li>Priority support</li>
+                        <li>Weekly reports</li>
+                        <li>Unlimited revisions</li>
+                        <li>Security audit included</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Most Popular</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom<span style="font-size: 1rem; color: #666;">/quote</span></div>
+                    <ul class="pricing-features">
+                        <li>Complete digital transformation</li>
+                        <li>Dedicated team</li>
+                        <li>24/7 support</li>
+                        <li>Real-time monitoring</li>
+                        <li>Custom integrations</li>
+                        <li>Advanced security</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Let's discuss how our services can help you achieve your technology goals</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fas fa-comments"></i>
+                    Get Free Consultation
+                </a>
+                <a href="portfolio.html" class="btn btn-secondary">
+                    <i class="fas fa-eye"></i>
+                    View Our Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html#cloud">Cloud Solutions</a></li>
+                        <li><a href="services.html#development">Custom Development</a></li>
+                        <li><a href="services.html#outsourcing">IT Outsourcing</a></li>
+                        <li><a href="services.html#security">Cybersecurity</a></li>
+                        <li><a href="services.html#transformation">Digital Transformation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="portfolio.html">Case Studies</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p style="margin-top: 1rem;">Follow us for the latest updates and insights in technology and innovation.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Novasysis Technology. All rights reserved. | Crafted with ❤️ for digital excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
