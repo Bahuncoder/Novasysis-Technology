@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Novasysis Technology</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .contact-option {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .contact-option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border-color: #00d4ff;
+        }
+        
+        .contact-option-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #00d4ff, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .contact-option h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .contact-option p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 4rem 0;
+        }
+        
+        .office-locations {
+            background: #f8f9fa;
+            padding: 100px 0;
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .location-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .location-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .location-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #00d4ff, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .location-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .location-details {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .location-details p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-form-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .form-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .form-tab {
+            padding: 12px 24px;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            color: #666;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .form-tab.active,
+        .form-tab:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .form-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-panel {
+            display: none;
+        }
+        
+        .form-panel.active {
+            display: block;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-field.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-field label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .form-field textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .checkbox-field {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .checkbox-field input {
+            width: auto;
+        }
+        
+        .faq-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .faq-question {
+            padding: 1.5rem 2rem;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+        
+        .faq-question i {
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 2rem 1.5rem;
+            color: #666;
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        .response-time {
+            background: linear-gradient(45deg, #00d4ff, #3b82f6);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .response-time h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .response-time p {
+            opacity: 0.9;
+        }
+        
+        .emergency-contact {
+            background: #ff6b6b;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .emergency-contact h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .emergency-contact .phone {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cube"></i>
+                </div>
+                Novasysis Technology
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Ready to transform your business? Let's start the conversation today</p>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Can We Help You?</h2>
+                <p>Choose the best way to get in touch with our team</p>
+            </div>
+            
+            <div class="contact-options">
+                <div class="contact-option">
+                    <div class="contact-option-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Free Consultation</h3>
+                    <p>Schedule a complimentary consultation to discuss your technology needs and explore how we can help achieve your goals.</p>
+                    <a href="#consultation-form" class="btn btn-primary">Book Consultation</a>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-option-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>General Inquiry</h3>
+                    <p>Have questions about our services, pricing, or capabilities? Send us a message and we'll get back to you promptly.</p>
+                    <a href="#general-form" class="btn btn-primary">Send Message</a>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-option-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partnership</h3>
+                    <p>Interested in partnering with us or exploring business collaboration opportunities? Let's discuss how we can work together.</p>
+                    <a href="#partnership-form" class="btn btn-primary">Partner With Us</a>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-option-icon">
+                        <i class="fas fa-life-ring"></i>
+                    </div>
+                    <h3>Support</h3>
+                    <p>Existing client needing technical support or assistance? Our support team is here to help you resolve any issues quickly.</p>
+                    <a href="#support-form" class="btn btn-primary">Get Support</a>
+                </div>
+            </div>
+            
+            <!-- Response Time & Emergency Contact -->
+            <div class="contact-details">
+                <div class="response-time">
+                    <h3>Response Time</h3>
+                    <p>We typically respond to all inquiries within 2-4 business hours during our operating hours (9 AM - 6 PM EST).</p>
+                </div>
+                
+                <div class="emergency-contact">
+                    <h3>Emergency Support</h3>
+                    <p>For urgent technical issues requiring immediate attention</p>
+                    <div class="phone">+1 (555) 911-TECH</div>
+                    <p>Available 24/7 for existing clients with support contracts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Forms -->
+    <section class="contact-form-section" id="contact-forms">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Fill out the appropriate form below and we'll get back to you soon</p>
+            </div>
+            
+            <!-- Form Tabs -->
+            <div class="form-tabs">
+                <div class="form-tab active" data-tab="consultation">Free Consultation</div>
+                <div class="form-tab" data-tab="general">General Inquiry</div>
+                <div class="form-tab" data-tab="partnership">Partnership</div>
+                <div class="form-tab" data-tab="support">Support</div>
+            </div>
+            
+            <div class="form-content">
+                <!-- Consultation Form -->
+                <div class="form-panel active" id="consultation-form">
+                    <form>
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="consult-name">Full Name *</label>
+                                <input type="text" id="consult-name" name="name" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="consult-email">Email Address *</label>
+                                <input type="email" id="consult-email" name="email" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="consult-phone">Phone Number</label>
+                                <input type="tel" id="consult-phone" name="phone">
+                            </div>
+                            <div class="form-field">
+                                <label for="consult-company">Company Name</label>
+                                <input type="text" id="consult-company" name="company">
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="consult-service">Service Interest *</label>
+                                <select id="consult-service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="cloud-solutions">Cloud Solutions</option>
+                                    <option value="custom-development">Custom Development</option>
+                                    <option value="it-outsourcing">IT Outsourcing</option>
+                                    <option value="cybersecurity">Cybersecurity</option>
+                                    <option value="digital-transformation">Digital Transformation</option>
+                                    <option value="multiple">Multiple Services</option>
+                                </select>
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="consult-budget">Project Budget Range</label>
+                                <select id="consult-budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-25k">Under $25,000</option>
+                                    <option value="25k-50k">$25,000 - $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="100k-250k">$100,000 - $250,000</option>
+                                    <option value="over-250k">Over $250,000</option>
+                                </select>
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="consult-timeline">Preferred Timeline</label>
+                                <select id="consult-timeline" name="timeline">
+                                    <option value="">Select timeline</option>
+                                    <option value="immediate">Immediate (ASAP)</option>
+                                    <option value="1-3-months">1-3 months</option>
+                                    <option value="3-6-months">3-6 months</option>
+                                    <option value="6-12-months">6-12 months</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="consult-message">Project Details *</label>
+                                <textarea id="consult-message" name="message" placeholder="Please describe your project requirements, current challenges, and goals..." required></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-field">
+                            <input type="checkbox" id="consult-newsletter" name="newsletter">
+                            <label for="consult-newsletter">Subscribe to our newsletter for tech insights and updates</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-calendar-check"></i>
+                            Schedule Consultation
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- General Inquiry Form -->
+                <div class="form-panel" id="general-form">
+                    <form>
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="general-name">Full Name *</label>
+                                <input type="text" id="general-name" name="name" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="general-email">Email Address *</label>
+                                <input type="email" id="general-email" name="email" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="general-phone">Phone Number</label>
+                                <input type="tel" id="general-phone" name="phone">
+                            </div>
+                            <div class="form-field">
+                                <label for="general-subject">Subject *</label>
+                                <input type="text" id="general-subject" name="subject" required>
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="general-category">Inquiry Type</label>
+                                <select id="general-category" name="category">
+                                    <option value="">Select category</option>
+                                    <option value="services">Services Information</option>
+                                    <option value="pricing">Pricing Questions</option>
+                                    <option value="capabilities">Technical Capabilities</option>
+                                    <option value="process">Development Process</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="general-message">Message *</label>
+                                <textarea id="general-message" name="message" placeholder="Please provide details about your inquiry..." required></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Partnership Form -->
+                <div class="form-panel" id="partnership-form">
+                    <form>
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="partner-name">Contact Name *</label>
+                                <input type="text" id="partner-name" name="name" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="partner-email">Email Address *</label>
+                                <input type="email" id="partner-email" name="email" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="partner-company">Company Name *</label>
+                                <input type="text" id="partner-company" name="company" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="partner-title">Your Title</label>
+                                <input type="text" id="partner-title" name="title">
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="partner-type">Partnership Type *</label>
+                                <select id="partner-type" name="partnership-type" required>
+                                    <option value="">Select partnership type</option>
+                                    <option value="technology">Technology Partnership</option>
+                                    <option value="reseller">Reseller Program</option>
+                                    <option value="strategic">Strategic Alliance</option>
+                                    <option value="vendor">Vendor/Supplier</option>
+                                    <option value="referral">Referral Program</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="partner-description">Company Description *</label>
+                                <textarea id="partner-description" name="description" placeholder="Tell us about your company, services, and target market..." required></textarea>
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="partner-proposal">Partnership Proposal *</label>
+                                <textarea id="partner-proposal" name="proposal" placeholder="Describe your partnership proposal and how we can work together..." required></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-handshake"></i>
+                            Submit Partnership Inquiry
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Support Form -->
+                <div class="form-panel" id="support-form">
+                    <form>
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="support-name">Contact Name *</label>
+                                <input type="text" id="support-name" name="name" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="support-email">Email Address *</label>
+                                <input type="email" id="support-email" name="email" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="support-phone">Phone Number *</label>
+                                <input type="tel" id="support-phone" name="phone" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="support-company">Company/Client ID</label>
+                                <input type="text" id="support-company" name="company">
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="support-priority">Priority Level *</label>
+                                <select id="support-priority" name="priority" required>
+                                    <option value="">Select priority</option>
+                                    <option value="low">Low - General question</option>
+                                    <option value="medium">Medium - Issue affecting workflow</option>
+                                    <option value="high">High - System partially down</option>
+                                    <option value="critical">Critical - System completely down</option>
+                                </select>
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="support-category">Issue Category</label>
+                                <select id="support-category" name="category">
+                                    <option value="">Select category</option>
+                                    <option value="technical">Technical Issue</option>
+                                    <option value="account">Account/Billing</option>
+                                    <option value="feature">Feature Request</option>
+                                    <option value="bug">Bug Report</option>
+                                    <option value="training">Training/Documentation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="support-issue">Issue Description *</label>
+                                <textarea id="support-issue" name="issue" placeholder="Please provide detailed information about the issue, including steps to reproduce, error messages, and impact..." required></textarea>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-life-ring"></i>
+                            Submit Support Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations -->
+    <section class="office-locations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Locations</h2>
+                <p>Find us at our offices around the world</p>
+            </div>
+            
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="location-name">Headquarters - Dallas</div>
+                    </div>
+                    <div class="location-details">
+                        <p><strong>Address:</strong><br>123 Tech Hub Drive<br>Innovation District, TX 75201</p>
+                        <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                        <p><strong>Hours:</strong> Mon-Fri 9AM-6PM EST</p>
+                        <p><strong>Email:</strong> dallas@novasysis.com</p>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <div class="location-name">East Coast - New York</div>
+                    </div>
+                    <div class="location-details">
+                        <p><strong>Address:</strong><br>456 Innovation Avenue<br>Manhattan, NY 10001</p>
+                        <p><strong>Phone:</strong> +1 (555) 234-5678</p>
+                        <p><strong>Hours:</strong> Mon-Fri 9AM-6PM EST</p>
+                        <p><strong>Email:</strong> newyork@novasysis.com</p>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div class="location-name">West Coast - San Francisco</div>
+                    </div>
+                    <div class="location-details">
+                        <p><strong>Address:</strong><br>789 Silicon Valley Blvd<br>San Francisco, CA 94105</p>
+                        <p><strong>Phone:</strong> +1 (555) 345-6789</p>
+                        <p><strong>Hours:</strong> Mon-Fri 9AM-6PM PST</p>
+                        <p><strong>Email:</strong> sanfrancisco@novasysis.com</p>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-header">
+                        <div class="location-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="location-name">International - London</div>
+                    </div>
+                    <div class="location-details">
+                        <p><strong>Address:</strong><br>321 Tech Square<br>London, UK EC1A 1BB</p>
+                        <p><strong>Phone:</strong> +44 20 7123 4567</p>
+                        <p><strong>Hours:</strong> Mon-Fri 9AM-5PM GMT</p>
+                        <p><strong>Email:</strong> london@novasysis.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions about working with us</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How quickly can you start on a new project?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We can typically begin new projects within 1-2 weeks after contract signing, depending on project complexity and team availability. For urgent projects, we can often start within a few days.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What industries do you specialize in?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We work across multiple industries including healthcare, finance, e-commerce, education, manufacturing, and startups. Our diverse experience allows us to bring best practices from various sectors to your project.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you provide ongoing support after project completion?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer comprehensive post-launch support including maintenance, updates, monitoring, and technical support. We provide various support packages to fit different needs and budgets.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is your typical project timeline?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Project timelines vary based on scope and complexity. Simple websites take 4-8 weeks, medium complexity applications take 3-6 months, and enterprise solutions can take 6-18 months. We provide detailed timelines during the consultation phase.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do you ensure project quality and security?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We follow industry best practices including code reviews, automated testing, security audits, and compliance with standards like ISO 27001 and SOC 2. Our quality assurance process ensures deliverables meet the highest standards.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What communication methods do you use during projects?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We use a combination of project management tools (Jira, Asana), video calls (Zoom, Teams), instant messaging (Slack), and regular status reports. We adapt our communication style to match your preferences and requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html#cloud">Cloud Solutions</a></li>
+                        <li><a href="services.html#development">Custom Development</a></li>
+                        <li><a href="services.html#outsourcing">IT Outsourcing</a></li>
+                        <li><a href="services.html#security">Cybersecurity</a></li>
+                        <li><a href="services.html#transformation">Digital Transformation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="portfolio.html">Case Studies</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p style="margin-top: 1rem;">Follow us for the latest updates and insights in technology and innovation.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Novasysis Technology. All rights reserved. | Crafted with ❤️ for digital excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.form-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and panels
+                document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding panel
+                this.classList.add('active');
+                document.getElementById(targetTab + '-form').classList.add('active');
+            });
+        });
+        
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    this.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scrolling for contact option buttons
+        document.querySelectorAll('.contact-option a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetTab = targetId.replace('-form', '');
+                
+                // Switch to appropriate tab
+                document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+                
+                document.querySelector(`[data-tab="${targetTab}"]`).classList.add('active');
+                document.getElementById(targetId).classList.add('active');
+                
+                // Scroll to forms section
+                document.getElementById('contact-forms').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
